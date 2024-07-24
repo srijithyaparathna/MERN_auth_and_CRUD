@@ -57,7 +57,7 @@ const UpdateCar = async (req, res) => {
 };
 
 // Delete a car (only admin)
-const deleteCar = async (req, res) => {
+const DeleteCar = async (req, res) => {
     if (req.User.role !== 'admin') return res.status(403).send("Admin access required");
     try {
         const car = await Car.findByIdAndDelete(req.params.id); // Added await and corrected 'findByIdAndDelete'
@@ -75,5 +75,5 @@ module.exports = {
     GetCars,
     GetCarById,
     UpdateCar,
-    deleteCar
+    DeleteCar
 };
