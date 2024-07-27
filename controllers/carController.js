@@ -4,7 +4,7 @@ const Car = require('../models/Car'); // Corrected the case for the 'Car' model 
 
 // Create a new car
 const CreateCar = async (req, res) => {
-    if (req.User.role !== 'admin') return res.status(403).send("Admin access required"); // Fixed the 'res.this.status(403)' and moved send to the next line
+    if (req.user.role !== 'admin') return res.status(403).send("Admin access required"); // Fixed the 'res.this.status(403)' and moved send to the next line
 
     try {
         const car = new Car(req.body); // Corrected 'new car(req, body)' to 'new Car(req.body)'
